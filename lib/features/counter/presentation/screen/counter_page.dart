@@ -37,7 +37,7 @@ class CounterPage extends ConsumerWidget {
             onPressed: () => router.push(const SecondRoute()),
             icon: const Icon(Icons.arrow_circle_right),
             label: const Text('second page'),
-          )
+          ),
         ],
       ),
       floatingActionButton: Column(

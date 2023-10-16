@@ -1,6 +1,5 @@
 import 'package:app_boilerplate/features/counter/counter.dart';
 import 'package:app_boilerplate/l10n/l10n.dart';
-import 'package:app_boilerplate/routes/app_route.dart';
 import 'package:app_boilerplate/shared/theme/app_theme.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -33,10 +32,10 @@ class CounterPage extends ConsumerWidget {
             height: 50,
           ),
           ElevatedButton.icon(
-            onPressed: () => router.push(const SecondRoute()),
+            onPressed: () => router.pushNamed('/second'),
             icon: const Icon(Icons.arrow_circle_right),
             label: const Text('second page'),
-          )
+          ),
         ],
       ),
       floatingActionButton: Column(

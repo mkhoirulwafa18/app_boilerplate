@@ -15,7 +15,13 @@ class AppRouter extends _$AppRouter {
 
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: CounterRoute.page, initial: true),
-        AutoRoute(page: SecondRoute.page)
+        AutoRoute(
+          path: '/',
+          page: CounterRoute.page,
+        ),
+        AutoRoute(
+          path: '/second',
+          page: SecondRoute.page,
+        ),
       ];
 }

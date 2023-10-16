@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:app_boilerplate/shared/utils/helpers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Observers extends ProviderObserver {
@@ -41,24 +41,15 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle.light.copyWith(
-      statusBarColor: Colors.black,
-      statusBarBrightness: Brightness.light,
-    ),
-  );
+  setStatusBar();
 
   // Add cross-flavor configuration here
-
-  await runZonedGuarded(
-    () async => runApp(
-      ProviderScope(
-        observers: [
-          Observers(),
-        ],
-        child: await builder(),
-      ),
+  runApp(
+    ProviderScope(
+      observers: [
+        Observers(),
+      ],
+      child: await builder(),
     ),
-    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );
 }
